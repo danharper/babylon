@@ -614,7 +614,7 @@ pp.parseParenAndDistinguishExpression = function (startPos, startLoc, canBeArrow
 };
 
 pp.shouldParseArrow = function () {
-	return !this.canInsertSemicolon();
+  return !this.canInsertSemicolon();
 };
 
 pp.parseArrow = function (node) {
