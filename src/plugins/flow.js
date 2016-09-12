@@ -1178,6 +1178,12 @@ export default function (instance) {
     };
   });
 
+  instance.extend("shouldParseArrow", function (inner) {
+    return function () {
+      return this.match(tt.colon) || inner.call(this);
+    };
+  });
+
   instance.extend("isClassMutatorStarter", function (inner) {
     return function () {
       if (this.isRelational("<")) {
