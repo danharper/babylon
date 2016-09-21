@@ -728,6 +728,7 @@ pp.parseObj = function (isPattern, refShorthandDefaultPos) {
       isGenerator = this.eat(tt.star);
     }
 
+    this.state.parsingPropName = true
     if (!isPattern && this.isContextual("async")) {
       if (isGenerator) this.unexpected();
 
@@ -742,6 +743,7 @@ pp.parseObj = function (isPattern, refShorthandDefaultPos) {
     } else {
       this.parsePropertyName(prop);
     }
+    this.state.parsingPropName = false
 
     this.parseObjPropValue(prop, startPos, startLoc, isGenerator, isAsync, isPattern, refShorthandDefaultPos);
     this.checkPropClash(prop, propHash);

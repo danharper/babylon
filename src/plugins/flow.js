@@ -888,7 +888,7 @@ export default function (instance) {
   // ensure that inside flow types, we bypass the jsx parser plugin
   instance.extend("readToken", function (inner) {
     return function (code) {
-      if (this.state.inType && (code === 62 || code === 60)) {
+      if ((this.state.inType || this.state.parsingPropName) && (code === 62 || code === 60)) {
         return this.finishOp(tt.relational, 1);
       } else {
         return inner.call(this, code);
@@ -1024,13 +1024,7 @@ export default function (instance) {
       let typeParameters;
 
       // method shorthand
-      if (this.match(tt.jsxTagStart)) {
-        this.state.exprAllowed = false;
-        this.state.context.pop();
-        this.state.context.pop();
-      }
-
-      if (this.isRelational("<") || this.match(tt.jsxTagStart)) {
+      if (this.isRelational("<")) {
         typeParameters = this.flowParseTypeParameterDeclaration();
         if (!this.match(tt.parenL)) this.unexpected();
       }
