@@ -1024,15 +1024,13 @@ export default function (instance) {
       let typeParameters;
 
       // method shorthand
-      if (this.state.type === tt.jsxTagStart) {
-        this.state.type = tt.relational;
-        this.state.value = '<';
+      if (this.match(tt.jsxTagStart)) {
         this.state.exprAllowed = false;
         this.state.context.pop();
         this.state.context.pop();
       }
 
-      if (this.isRelational("<") /*|| this.match(tt.jsxTagStart)*/) {
+      if (this.isRelational("<") || this.match(tt.jsxTagStart)) {
         typeParameters = this.flowParseTypeParameterDeclaration();
         if (!this.match(tt.parenL)) this.unexpected();
       }
