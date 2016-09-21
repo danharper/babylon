@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 179,
+  "end": 265,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 15,
+      "line": 19,
       "column": 2
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 179,
+    "end": 265,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 15,
+        "line": 19,
         "column": 2
       }
     },
@@ -31,14 +31,14 @@
       {
         "type": "VariableDeclaration",
         "start": 0,
-        "end": 96,
+        "end": 142,
         "loc": {
           "start": {
             "line": 1,
             "column": 0
           },
           "end": {
-            "line": 7,
+            "line": 9,
             "column": 2
           }
         },
@@ -46,14 +46,14 @@
           {
             "type": "VariableDeclarator",
             "start": 6,
-            "end": 95,
+            "end": 141,
             "loc": {
               "start": {
                 "line": 1,
                 "column": 6
               },
               "end": {
-                "line": 7,
+                "line": 9,
                 "column": 1
               }
             },
@@ -77,14 +77,14 @@
             "init": {
               "type": "ObjectExpression",
               "start": 10,
-              "end": 95,
+              "end": 141,
               "loc": {
                 "start": {
                   "line": 1,
                   "column": 10
                 },
                 "end": {
-                  "line": 7,
+                  "line": 9,
                   "column": 1
                 }
               },
@@ -455,7 +455,7 @@
                 {
                   "type": "ObjectMethod",
                   "start": 79,
-                  "end": 92,
+                  "end": 99,
                   "loc": {
                     "start": {
                       "line": 6,
@@ -463,6 +463,188 @@
                     },
                     "end": {
                       "line": 6,
+                      "column": 21
+                    }
+                  },
+                  "method": true,
+                  "shorthand": false,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 85,
+                    "end": 91,
+                    "loc": {
+                      "start": {
+                        "line": 6,
+                        "column": 7
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 13
+                      },
+                      "identifierName": "foobar"
+                    },
+                    "name": "foobar"
+                  },
+                  "kind": "method",
+                  "id": null,
+                  "generator": false,
+                  "expression": false,
+                  "async": true,
+                  "params": [],
+                  "body": {
+                    "type": "BlockStatement",
+                    "start": 97,
+                    "end": 99,
+                    "loc": {
+                      "start": {
+                        "line": 6,
+                        "column": 19
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 21
+                      }
+                    },
+                    "body": [],
+                    "directives": []
+                  },
+                  "typeParameters": {
+                    "type": "TypeParameterDeclaration",
+                    "start": 91,
+                    "end": 94,
+                    "loc": {
+                      "start": {
+                        "line": 6,
+                        "column": 13
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 16
+                      }
+                    },
+                    "params": [
+                      {
+                        "type": "TypeParameter",
+                        "start": 92,
+                        "end": 93,
+                        "loc": {
+                          "start": {
+                            "line": 6,
+                            "column": 14
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 15
+                          }
+                        },
+                        "name": "T"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "ObjectMethod",
+                  "start": 102,
+                  "end": 122,
+                  "loc": {
+                    "start": {
+                      "line": 7,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 7,
+                      "column": 21
+                    }
+                  },
+                  "method": true,
+                  "shorthand": false,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 108,
+                    "end": 114,
+                    "loc": {
+                      "start": {
+                        "line": 7,
+                        "column": 7
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 13
+                      },
+                      "identifierName": "delete"
+                    },
+                    "name": "delete"
+                  },
+                  "kind": "method",
+                  "id": null,
+                  "generator": false,
+                  "expression": false,
+                  "async": true,
+                  "params": [],
+                  "body": {
+                    "type": "BlockStatement",
+                    "start": 120,
+                    "end": 122,
+                    "loc": {
+                      "start": {
+                        "line": 7,
+                        "column": 19
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 21
+                      }
+                    },
+                    "body": [],
+                    "directives": []
+                  },
+                  "typeParameters": {
+                    "type": "TypeParameterDeclaration",
+                    "start": 114,
+                    "end": 117,
+                    "loc": {
+                      "start": {
+                        "line": 7,
+                        "column": 13
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 16
+                      }
+                    },
+                    "params": [
+                      {
+                        "type": "TypeParameter",
+                        "start": 115,
+                        "end": 116,
+                        "loc": {
+                          "start": {
+                            "line": 7,
+                            "column": 14
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 15
+                          }
+                        },
+                        "name": "T"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "ObjectMethod",
+                  "start": 125,
+                  "end": 138,
+                  "loc": {
+                    "start": {
+                      "line": 8,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 8,
                       "column": 14
                     }
                   },
@@ -471,15 +653,15 @@
                   "computed": false,
                   "key": {
                     "type": "Identifier",
-                    "start": 79,
-                    "end": 84,
+                    "start": 125,
+                    "end": 130,
                     "loc": {
                       "start": {
-                        "line": 6,
+                        "line": 8,
                         "column": 1
                       },
                       "end": {
-                        "line": 6,
+                        "line": 8,
                         "column": 6
                       },
                       "identifierName": "await"
@@ -494,15 +676,15 @@
                   "params": [],
                   "body": {
                     "type": "BlockStatement",
-                    "start": 90,
-                    "end": 92,
+                    "start": 136,
+                    "end": 138,
                     "loc": {
                       "start": {
-                        "line": 6,
+                        "line": 8,
                         "column": 12
                       },
                       "end": {
-                        "line": 6,
+                        "line": 8,
                         "column": 14
                       }
                     },
@@ -511,30 +693,30 @@
                   },
                   "typeParameters": {
                     "type": "TypeParameterDeclaration",
-                    "start": 84,
-                    "end": 87,
+                    "start": 130,
+                    "end": 133,
                     "loc": {
                       "start": {
-                        "line": 6,
+                        "line": 8,
                         "column": 6
                       },
                       "end": {
-                        "line": 6,
+                        "line": 8,
                         "column": 9
                       }
                     },
                     "params": [
                       {
                         "type": "TypeParameter",
-                        "start": 85,
-                        "end": 86,
+                        "start": 131,
+                        "end": 132,
                         "loc": {
                           "start": {
-                            "line": 6,
+                            "line": 8,
                             "column": 7
                           },
                           "end": {
-                            "line": 6,
+                            "line": 8,
                             "column": 8
                           }
                         },
@@ -551,44 +733,44 @@
       },
       {
         "type": "VariableDeclaration",
-        "start": 98,
-        "end": 179,
+        "start": 144,
+        "end": 265,
         "loc": {
           "start": {
-            "line": 9,
+            "line": 11,
             "column": 0
           },
           "end": {
-            "line": 15,
+            "line": 19,
             "column": 2
           }
         },
         "declarations": [
           {
             "type": "VariableDeclarator",
-            "start": 104,
-            "end": 178,
+            "start": 150,
+            "end": 264,
             "loc": {
               "start": {
-                "line": 9,
+                "line": 11,
                 "column": 6
               },
               "end": {
-                "line": 15,
+                "line": 19,
                 "column": 1
               }
             },
             "id": {
               "type": "Identifier",
-              "start": 104,
-              "end": 105,
+              "start": 150,
+              "end": 151,
               "loc": {
                 "start": {
-                  "line": 9,
+                  "line": 11,
                   "column": 6
                 },
                 "end": {
-                  "line": 9,
+                  "line": 11,
                   "column": 7
                 },
                 "identifierName": "y"
@@ -597,30 +779,30 @@
             },
             "init": {
               "type": "ObjectExpression",
-              "start": 108,
-              "end": 178,
+              "start": 154,
+              "end": 264,
               "loc": {
                 "start": {
-                  "line": 9,
+                  "line": 11,
                   "column": 10
                 },
                 "end": {
-                  "line": 15,
+                  "line": 19,
                   "column": 1
                 }
               },
               "properties": [
                 {
                   "type": "ObjectMethod",
-                  "start": 111,
-                  "end": 122,
+                  "start": 157,
+                  "end": 168,
                   "loc": {
                     "start": {
-                      "line": 10,
+                      "line": 12,
                       "column": 1
                     },
                     "end": {
-                      "line": 10,
+                      "line": 12,
                       "column": 12
                     }
                   },
@@ -629,15 +811,15 @@
                   "computed": false,
                   "key": {
                     "type": "Identifier",
-                    "start": 111,
-                    "end": 117,
+                    "start": 157,
+                    "end": 163,
                     "loc": {
                       "start": {
-                        "line": 10,
+                        "line": 12,
                         "column": 1
                       },
                       "end": {
-                        "line": 10,
+                        "line": 12,
                         "column": 7
                       },
                       "identifierName": "foobar"
@@ -652,15 +834,15 @@
                   "params": [],
                   "body": {
                     "type": "BlockStatement",
-                    "start": 120,
-                    "end": 122,
+                    "start": 166,
+                    "end": 168,
                     "loc": {
                       "start": {
-                        "line": 10,
+                        "line": 12,
                         "column": 10
                       },
                       "end": {
-                        "line": 10,
+                        "line": 12,
                         "column": 12
                       }
                     },
@@ -670,15 +852,15 @@
                 },
                 {
                   "type": "ObjectMethod",
-                  "start": 125,
-                  "end": 136,
+                  "start": 171,
+                  "end": 182,
                   "loc": {
                     "start": {
-                      "line": 11,
+                      "line": 13,
                       "column": 1
                     },
                     "end": {
-                      "line": 11,
+                      "line": 13,
                       "column": 12
                     }
                   },
@@ -687,15 +869,15 @@
                   "computed": false,
                   "key": {
                     "type": "Identifier",
-                    "start": 125,
-                    "end": 131,
+                    "start": 171,
+                    "end": 177,
                     "loc": {
                       "start": {
-                        "line": 11,
+                        "line": 13,
                         "column": 1
                       },
                       "end": {
-                        "line": 11,
+                        "line": 13,
                         "column": 7
                       },
                       "identifierName": "delete"
@@ -710,15 +892,15 @@
                   "params": [],
                   "body": {
                     "type": "BlockStatement",
-                    "start": 134,
-                    "end": 136,
+                    "start": 180,
+                    "end": 182,
                     "loc": {
                       "start": {
-                        "line": 11,
+                        "line": 13,
                         "column": 10
                       },
                       "end": {
-                        "line": 11,
+                        "line": 13,
                         "column": 12
                       }
                     },
@@ -728,15 +910,15 @@
                 },
                 {
                   "type": "ObjectMethod",
-                  "start": 139,
-                  "end": 149,
+                  "start": 185,
+                  "end": 195,
                   "loc": {
                     "start": {
-                      "line": 12,
+                      "line": 14,
                       "column": 1
                     },
                     "end": {
-                      "line": 12,
+                      "line": 14,
                       "column": 11
                     }
                   },
@@ -745,15 +927,15 @@
                   "computed": false,
                   "key": {
                     "type": "Identifier",
-                    "start": 139,
-                    "end": 144,
+                    "start": 185,
+                    "end": 190,
                     "loc": {
                       "start": {
-                        "line": 12,
+                        "line": 14,
                         "column": 1
                       },
                       "end": {
-                        "line": 12,
+                        "line": 14,
                         "column": 6
                       },
                       "identifierName": "yield"
@@ -768,15 +950,15 @@
                   "params": [],
                   "body": {
                     "type": "BlockStatement",
-                    "start": 147,
-                    "end": 149,
+                    "start": 193,
+                    "end": 195,
                     "loc": {
                       "start": {
-                        "line": 12,
+                        "line": 14,
                         "column": 9
                       },
                       "end": {
-                        "line": 12,
+                        "line": 14,
                         "column": 11
                       }
                     },
@@ -786,15 +968,15 @@
                 },
                 {
                   "type": "ObjectMethod",
-                  "start": 152,
-                  "end": 162,
+                  "start": 198,
+                  "end": 208,
                   "loc": {
                     "start": {
-                      "line": 13,
+                      "line": 15,
                       "column": 1
                     },
                     "end": {
-                      "line": 13,
+                      "line": 15,
                       "column": 11
                     }
                   },
@@ -802,15 +984,15 @@
                   "shorthand": false,
                   "key": {
                     "type": "Identifier",
-                    "start": 152,
-                    "end": 157,
+                    "start": 198,
+                    "end": 203,
                     "loc": {
                       "start": {
-                        "line": 13,
+                        "line": 15,
                         "column": 1
                       },
                       "end": {
-                        "line": 13,
+                        "line": 15,
                         "column": 6
                       },
                       "identifierName": "async"
@@ -825,15 +1007,15 @@
                   "params": [],
                   "body": {
                     "type": "BlockStatement",
-                    "start": 160,
-                    "end": 162,
+                    "start": 206,
+                    "end": 208,
                     "loc": {
                       "start": {
-                        "line": 13,
+                        "line": 15,
                         "column": 9
                       },
                       "end": {
-                        "line": 13,
+                        "line": 15,
                         "column": 11
                       }
                     },
@@ -843,15 +1025,131 @@
                 },
                 {
                   "type": "ObjectMethod",
-                  "start": 165,
-                  "end": 175,
+                  "start": 211,
+                  "end": 228,
                   "loc": {
                     "start": {
-                      "line": 14,
+                      "line": 16,
                       "column": 1
                     },
                     "end": {
-                      "line": 14,
+                      "line": 16,
+                      "column": 18
+                    }
+                  },
+                  "method": true,
+                  "shorthand": false,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 217,
+                    "end": 223,
+                    "loc": {
+                      "start": {
+                        "line": 16,
+                        "column": 7
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 13
+                      },
+                      "identifierName": "foobar"
+                    },
+                    "name": "foobar"
+                  },
+                  "kind": "method",
+                  "id": null,
+                  "generator": false,
+                  "expression": false,
+                  "async": true,
+                  "params": [],
+                  "body": {
+                    "type": "BlockStatement",
+                    "start": 226,
+                    "end": 228,
+                    "loc": {
+                      "start": {
+                        "line": 16,
+                        "column": 16
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 18
+                      }
+                    },
+                    "body": [],
+                    "directives": []
+                  }
+                },
+                {
+                  "type": "ObjectMethod",
+                  "start": 231,
+                  "end": 248,
+                  "loc": {
+                    "start": {
+                      "line": 17,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 17,
+                      "column": 18
+                    }
+                  },
+                  "method": true,
+                  "shorthand": false,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 237,
+                    "end": 243,
+                    "loc": {
+                      "start": {
+                        "line": 17,
+                        "column": 7
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 13
+                      },
+                      "identifierName": "delete"
+                    },
+                    "name": "delete"
+                  },
+                  "kind": "method",
+                  "id": null,
+                  "generator": false,
+                  "expression": false,
+                  "async": true,
+                  "params": [],
+                  "body": {
+                    "type": "BlockStatement",
+                    "start": 246,
+                    "end": 248,
+                    "loc": {
+                      "start": {
+                        "line": 17,
+                        "column": 16
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 18
+                      }
+                    },
+                    "body": [],
+                    "directives": []
+                  }
+                },
+                {
+                  "type": "ObjectMethod",
+                  "start": 251,
+                  "end": 261,
+                  "loc": {
+                    "start": {
+                      "line": 18,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 18,
                       "column": 11
                     }
                   },
@@ -860,15 +1158,15 @@
                   "computed": false,
                   "key": {
                     "type": "Identifier",
-                    "start": 165,
-                    "end": 170,
+                    "start": 251,
+                    "end": 256,
                     "loc": {
                       "start": {
-                        "line": 14,
+                        "line": 18,
                         "column": 1
                       },
                       "end": {
-                        "line": 14,
+                        "line": 18,
                         "column": 6
                       },
                       "identifierName": "await"
@@ -883,15 +1181,15 @@
                   "params": [],
                   "body": {
                     "type": "BlockStatement",
-                    "start": 173,
-                    "end": 175,
+                    "start": 259,
+                    "end": 261,
                     "loc": {
                       "start": {
-                        "line": 14,
+                        "line": 18,
                         "column": 9
                       },
                       "end": {
-                        "line": 14,
+                        "line": 18,
                         "column": 11
                       }
                     },
