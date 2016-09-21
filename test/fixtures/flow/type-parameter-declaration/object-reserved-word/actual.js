@@ -2,7 +2,7 @@ const x = {
 	foobar<T>() {},
 	delete<T>() {},
 	yield<T>() {},
-	//async<T>() {},
+	async<T>() {},
 	await<T>() {},
 };
 
