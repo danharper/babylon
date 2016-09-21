@@ -897,7 +897,7 @@ export default function (instance) {
   // ensure that inside flow types, we bypass the jsx parser plugin
   instance.extend("readToken", function (inner) {
     return function (code) {
-      if ((this.state.inType || this.state.parsingPropName) && (code === 62 || code === 60)) {
+      if (this.state.inType && (code === 62 || code === 60)) {
         return this.finishOp(tt.relational, 1);
       } else {
         return inner.call(this, code);
