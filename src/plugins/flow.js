@@ -885,6 +885,15 @@ export default function (instance) {
     };
   });
 
+  instance.extend("parsePropertyName", function (inner) {
+    return function (prop) {
+      this.state.inType = true;
+      let out = inner.call(this, prop);
+      this.state.inType = false;
+      return out;
+    }
+  });
+
   // ensure that inside flow types, we bypass the jsx parser plugin
   instance.extend("readToken", function (inner) {
     return function (code) {
