@@ -8,17 +8,15 @@ import Parser from "../parser";
 let pp = Parser.prototype;
 
 pp.flowParseTypeInitialiser = function (tok, allowLeadingPipeOrAnd) {
-  let oldInType = this.state.inType;
-  this.state.inType = true;
-  this.expect(tok || tt.colon);
-  if (allowLeadingPipeOrAnd) {
-    if (this.match(tt.bitwiseAND) || this.match(tt.bitwiseOR)) {
-      this.next();
+  return this.withinType(() => {
+    this.expect(tok || tt.colon);
+    if (allowLeadingPipeOrAnd) {
+      if (this.match(tt.bitwiseAND) || this.match(tt.bitwiseOR)) {
+        this.next();
+      }
     }
-  }
-  let type = this.flowParseType();
-  this.state.inType = oldInType;
-  return type;
+    return this.flowParseType();
+  });
 };
 
 pp.flowParseDeclareClass = function (node) {
@@ -59,25 +57,27 @@ pp.flowParseDeclareFunction = function (node) {
 };
 
 pp.flowParseDeclare = function (node) {
-  if (this.match(tt._class)) {
-    return this.flowParseDeclareClass(node);
-  } else if (this.match(tt._function)) {
-    return this.flowParseDeclareFunction(node);
-  } else if (this.match(tt._var)) {
-    return this.flowParseDeclareVariable(node);
-  } else if (this.isContextual("module")) {
-    if (this.lookahead().type === tt.dot) {
-      return this.flowParseDeclareModuleExports(node);
+	return this.withinType(() => {
+    if (this.match(tt._class)) {
+      return this.flowParseDeclareClass(node);
+    } else if (this.match(tt._function)) {
+      return this.flowParseDeclareFunction(node);
+    } else if (this.match(tt._var)) {
+      return this.flowParseDeclareVariable(node);
+    } else if (this.isContextual("module")) {
+      if (this.lookahead().type === tt.dot) {
+        return this.flowParseDeclareModuleExports(node);
+      } else {
+        return this.flowParseDeclareModule(node);
+      }
+    } else if (this.isContextual("type")) {
+      return this.flowParseDeclareTypeAlias(node);
+    } else if (this.isContextual("interface")) {
+      return this.flowParseDeclareInterface(node);
     } else {
-      return this.flowParseDeclareModule(node);
+      this.unexpected();
     }
-  } else if (this.isContextual("type")) {
-    return this.flowParseDeclareTypeAlias(node);
-  } else if (this.isContextual("interface")) {
-    return this.flowParseDeclareInterface(node);
-  } else {
-    this.unexpected();
-  }
+  });
 };
 
 pp.flowParseDeclareVariable = function (node) {
@@ -229,36 +229,31 @@ pp.flowParseTypeParameter = function () {
 };
 
 pp.flowParseTypeParameterDeclaration = function () {
-  const oldInType = this.state.inType;
-  let node = this.startNode();
-  node.params = [];
+	return this.withinType(() => {
+    let node = this.startNode();
+    node.params = [];
 
-  this.state.inType = true;
-
-  if (this.isRelational("<") || this.match(tt.jsxTagStart)) {
-    this.next();
-  } else {
-    this.unexpected();
-  }
-
-  do {
-    node.params.push(this.flowParseTypeParameter());
-    if (!this.isRelational(">")) {
-      this.expect(tt.comma);
+    if (this.isRelational("<") || this.match(tt.jsxTagStart)) {
+      this.next();
+    } else {
+      this.unexpected();
     }
-  } while (!this.isRelational(">"));
-  this.expectRelational(">");
 
-  this.state.inType = oldInType;
+    do {
+      node.params.push(this.flowParseTypeParameter());
+      if (!this.isRelational(">")) {
+        this.expect(tt.comma);
+      }
+    } while (!this.isRelational(">"));
+    this.expectRelational(">");
 
-  return this.finishNode(node, "TypeParameterDeclaration");
+    return this.finishNode(node, "TypeParameterDeclaration");
+  });
 };
 
 pp.flowParseTypeParameterInstantiation = function () {
-  let node = this.startNode(), oldInType = this.state.inType;
+  let node = this.startNode();
   node.params = [];
-
-  this.state.inType = true;
 
   this.expectRelational("<");
   while (!this.isRelational(">")) {
@@ -268,8 +263,6 @@ pp.flowParseTypeParameterInstantiation = function () {
     }
   }
   this.expectRelational(">");
-
-  this.state.inType = oldInType;
 
   return this.finishNode(node, "TypeParameterInstantiation");
 };
@@ -679,11 +672,7 @@ pp.flowParseUnionType = function () {
 };
 
 pp.flowParseType = function () {
-  let oldInType = this.state.inType;
-  this.state.inType = true;
-  let type = this.flowParseUnionType();
-  this.state.inType = oldInType;
-  return type;
+  return this.flowParseUnionType();
 };
 
 pp.flowParseTypeAnnotation = function () {
@@ -724,6 +713,14 @@ pp.typeCastToParameter = function (node) {
     node.typeAnnotation.end,
     node.typeAnnotation.loc.end
   );
+};
+
+pp.withinType = function (cb) {
+  let oldInType = this.state.inType;
+  this.state.inType = true;
+  let out = cb();
+  this.state.inType = oldInType;
+  return out;
 };
 
 export default function (instance) {
@@ -887,10 +884,9 @@ export default function (instance) {
 
   instance.extend("parsePropertyName", function (inner) {
     return function (prop) {
-      this.state.inType = true;
-      let out = inner.call(this, prop);
-      this.state.inType = false;
-      return out;
+      return this.withinType(() => {
+        return inner.call(this, prop);
+      });
     }
   });
 
@@ -902,13 +898,6 @@ export default function (instance) {
       } else {
         return inner.call(this, code);
       }
-    };
-  });
-
-  // don't lex any token as a jsx one inside a flow type
-  instance.extend("jsx_readToken", function (inner) {
-    return function () {
-      if (!this.state.inType) return inner.call(this);
     };
   });
 
