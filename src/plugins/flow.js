@@ -255,10 +255,8 @@ pp.flowParseTypeParameterDeclaration = function () {
 };
 
 pp.flowParseTypeParameterInstantiation = function () {
-  let node = this.startNode(), oldInType = this.state.inType;
+  let node = this.startNode();
   node.params = [];
-
-  this.state.inType = true;
 
   this.expectRelational("<");
   while (!this.isRelational(">")) {
@@ -268,8 +266,6 @@ pp.flowParseTypeParameterInstantiation = function () {
     }
   }
   this.expectRelational(">");
-
-  this.state.inType = oldInType;
 
   return this.finishNode(node, "TypeParameterInstantiation");
 };
@@ -679,11 +675,7 @@ pp.flowParseUnionType = function () {
 };
 
 pp.flowParseType = function () {
-  let oldInType = this.state.inType;
-  this.state.inType = true;
-  let type = this.flowParseUnionType();
-  this.state.inType = oldInType;
-  return type;
+  return this.flowParseUnionType();
 };
 
 pp.flowParseTypeAnnotation = function () {
@@ -893,13 +885,6 @@ export default function (instance) {
       } else {
         return inner.call(this, code);
       }
-    };
-  });
-
-  // don't lex any token as a jsx one inside a flow type
-  instance.extend("jsx_readToken", function (inner) {
-    return function () {
-      if (!this.state.inType) return inner.call(this);
     };
   });
 
